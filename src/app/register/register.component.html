@@ -1,0 +1,74 @@
+<div class="container mt-5">
+    <h1 class="animate__animated animate__pulse text-primary">Register Form </h1>
+    <p>
+        Hello Dears : Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat in omnis non quibusdam. Id omnis
+        facilis ipsa illo voluptas consequuntur doloribus, itaque quod repellat ipsam neque ullam quasi, eveniet
+        sapiente Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat in omnis non quibusdam. Id omnis
+        facilis ipsa illo voluptas consequuntur doloribus, itaque quod repellat ipsam neque ullam quasi, eveniet
+        sapiente Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat in omnis non quibusdam. Id omnis
+        facilis ipsa illo voluptas consequuntur doloribus, itaque quod repellat ipsam neque ullam quasi, eveniet
+        sapiente  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat in omnis non quibusdam. Id omnis
+        facilis ipsa illo voluptas consequuntur doloribus, itaque quod repellat ipsam neque ullam quasi, eveniet
+        sapiente
+    </p>
+     <div class="row mt-3"> 
+        <div class="col-4 text-center">
+<img width="300px" src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlfyVxO8zH2ODuR6WeVcloHAkb51-KS2rFhg&usqp=CAU" alt="no image">
+<br>
+<a routerLink="" class="btn btn-primary mt-3">
+    <i class="fa-solid fa-circle-arrow-left"></i>  Back
+</a>
+        </div>
+        <div class="col-8">
+            <form (ngSubmit)="register()" [formGroup]="registerForm" class="border p-3">
+                <div class="form-floating mb-3">
+                    <input formControlName="username" name="username" type="text" class="form-control" id="floatingInput" placeholder="Username">
+                    <label for="floatingInput">Username</label>
+
+                  <!--accnt nmber validation - stuctural directive ngIf-->
+<div *ngIf="this.registerForm.get('username')?.errors&&this.registerForm.get('username')?.touched" class="text-danger">
+    Invalid Username
+</div>
+
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input formControlName="acno" name="acno"  type="email" class="form-control" id="floatingAcno" placeholder="Acoount Number">
+                    <label for="floatingInput">Account Number</label>
+                  </div>
+
+                   <!--accnt nmber validation - stuctural directive ngIf-->
+<div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched" class="text-danger">
+    Invalid Account Number
+</div>
+
+                  <div class="form-floating">
+                    <input formControlName="pswd" name="pswd"  type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+
+                    <!--accnt nmber validation - stuctural directive ngIf-->
+<div *ngIf="this.registerForm.get('pswd')?.errors&&this.registerForm.get('pswd')?.touched" class="text-danger">
+    Invalid Password
+</div>
+<!--server response-->
+<div class="text-danger">
+    <b> {{eMsg}}</b>
+
+</div>
+                <div>
+                  <button type="submit" class="btn btn-primary mt-2">
+                    Register
+                  </button>
+
+<!--bootstrap spinner code-->
+<button *ngIf="eMsg" class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>&nbsp;
+
+                </div>
+                  
+            </form>
+
+     </div>
+</div>

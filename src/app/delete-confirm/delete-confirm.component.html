@@ -1,0 +1,49 @@
+<div class="container mt-5" *ngIf="item && !serverMsg">
+    <div class="row text-center">
+        <div class="col-3"></div>
+        <div class="col-6 border p-5 rounded">
+            <div class="h3 text-danger">
+                Are you sure, Do you want to delete this account {{item}} ?
+            </div>
+            <button (click)="deleteChild()" class="btn btn-outline-danger">Yes</button> &nbsp;
+            <button (click)="cancel()" class="btn btn-outline-warning">No</button>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+<!-- delete popup -->
+<div class="container" *ngIf="!item && serverMsg">
+    <div class="row text-center">
+        <div class="col">
+            <img class="w-25 d-block m-auto" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="no image">
+            <h4 class="text-danger">Please wait.. You're Account is deleting</h4>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="conatiner mt-5" *ngIf="item && !serverMsg">
+    <div class="row text-center">
+        <div class="col"></div>
+        <div id="deBox" class="col-6 border p-5 rounded">
+            <div class="h4 text-danger">
+                Are you sure want to delete account {{item}}?
+            </div>
+            <button (click)="deleteChild()" class="btn btn-danger">Yes</button>&nbsp;
+            <button (click)="cancel()" class="btn btn-warning">No</button>&nbsp;
+        </div>
+        <div class="col-3"></div>
+
+    </div>
+</div>
+
+<!--delete popup -->
+<!--<div class="container mt-5" *ngIf="!item && serverMsg" >
+    <div class="row text-center">
+        <div class="col">
+            <img class="w-25 d-block m-auto" src=" https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="no image">
+            <h4 class=" mb-2 text-danger ">Account Deleting...Please wait</h4>
+        </div>
+    </div>
+</div>-->

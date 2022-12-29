@@ -1,0 +1,181 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <div class="col-lg-10">
+            <a class="navbar-brand" routerLink="/dashboard">
+                <i class="fa-sharp fa-solid fa-building-columns text-primary"></i>
+                &nbsp;<span class="title">Online Bank</span>
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+                        data-bs-toggle="dropdown">
+                        Services</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="/deposit">Deposit</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Balance Enquiry</a></li>
+                        <li><a class="dropdown-item" href="#">Transaction History</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> -->
+    </div>
+</nav>
+<div class="container border p-3 m-5">
+    <div class="row">
+        <div class="col-lg-4">
+            <h3 class="text-success">Transaction History</h3>
+        </div>
+        <div class="col-lg-4">
+            <label for="search">Search By:</label>&nbsp;
+           <input (keyup)="search($event)" id="search" type="text" placeholder="Transaction Type">
+        </div>
+        <div class="col-lg-4">
+          <input style="float:right;" type="button " value="Export" class="btn btn-successs"  (click)="generatePdf()">
+        </div>
+    </div>
+    <table class="table border mt-3 text-center">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Transaction Type</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let trans of transaction | filter:searchKey:'type'; let i=index">
+                <th>{{i+1}}</th>
+                <th>{{trans.type}}</th>
+                <th>{{trans.amount}}</th>
+            </tr>
+            <!-- <tr>
+                <th>2</th>
+                <th>Credit</th>
+                <th>1000</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>Credit</th>
+                <th>1000</th>
+            </tr> -->
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- <html>
+<head>
+    
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse:collapse;
+  width: 80%;
+  text-align: center;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <div class="col-lg-10">
+                <a class="navbar-brand" routerLink="/dashboard">
+                    <i class="fa-sharp fa-solid fa-building-columns text-primary"></i>
+                    &nbsp;<span class="title">Online Bank</span>
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+                            data-bs-toggle="dropdown">
+                            Services</a>
+    
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/deposit">Deposit</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Balance Enquiry</a></li>
+                            <li><a class="dropdown-item" href="#">Transaction History</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div> -->
+        <!-- </div>
+    </nav>
+
+    <h1 class="animate__animated animate__tada" style="margin-top: 100px">Transaction History</h1>  
+    <p>
+        Hello Dears : Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat in omnis non quibusdam. Id omnis
+        facilis ipsa illo voluptas consequuntur doloribus, itaque quod repellat ipsam neque ullam quasi, eveniet
+        sapiente Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat in omnis non quibusdam. Id omnis
+        facilis ipsa illo voluptas consequuntur doloribus, itaque quod repellat ipsam neque ullam quasi, eveniet
+        sapiente Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat in omnis non quibusdam. Id omnis
+        facilis ipsa illo voluptas consequuntur doloribus, itaque quod repellat ipsam neque ullam quasi, eveniet
+        sapiente  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat in omnis non quibusdam. Id omnis
+        facilis ipsa illo voluptas consequuntur doloribus, itaque quod repellat ipsam neque ullam quasi, eveniet
+        sapiente
+    </p>            
+
+<table>
+  <tr>
+    <th>No</th>
+    <th>Transaction Type</th>
+    <th>Amount</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>CREDIT</td>
+    <td>1000</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>CREDIT</td>
+    <td>1000</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>CREDIT</td>
+    <td>1000</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>CREDIT</td>
+    <td>1000</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>CREDIT</td>
+    <td>1000</td>
+  </tr>
+ 
+</table>
+
+</body>
+</html> --> 
